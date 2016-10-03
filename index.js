@@ -78,3 +78,12 @@ if(argv.exec){
         downstreamResponse.pipe(res);
     }).listen(8001);
 }
+
+function log(level, msg){
+    // Compare level to loglevel
+    // Is msg a string? => Output it
+    // Is msg a string? => Stream it
+    if(typeof msg === 'string' || msg instanceof String){
+        logStream.write(msg);
+    }
+}
